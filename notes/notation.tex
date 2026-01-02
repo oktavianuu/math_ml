@@ -1,0 +1,91 @@
+\documentclass[11pt, a4paper]{article}
+
+% === 1. Essential Packages and Layout ===
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo} % NEW: Uses Palatino font for a cleaner, modern look
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage[backend=biber, style=apa]{biblatex}
+\addbibresource{myreferences.bib}
+\geometry{
+    a4paper,
+    top=25mm,
+    bottom=25mm,
+    left=20mm,
+    right=20mm
+}
+\parskip=0.5em
+\usepackage{xcolor}
+\usepackage{titlesec} % Added back for section coloring
+
+% === 2. Gruvbox Color Definition (Used for Code & Headings) ===
+% Defining key Gruvbox Dark colors
+\definecolor{gb_red}{HTML}{cc241d}
+\definecolor{gb_green}{HTML}{98971a}
+\definecolor{gb_yellow}{HTML}{d79921}
+\definecolor{gb_blue}{HTML}{458588}     % Used for section headings!
+
+% === Section Styling (NEW: Subtle Color Accent) ===
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{gb_blue}} % Use the muted Gruvbox blue
+  {\thesection.}{0.5em}{}
+\titlespacing*{\section}{0pt}{1.5ex plus 1ex minus .2ex}{1ex plus .2ex}
+
+% === 3. Code Support (Gruvbox Syntax, White Background) ===
+\usepackage{listings}
+\lstset{
+    basicstyle=\ttfamily\small\color{black},
+    columns=fullflexible,
+    breaklines=true,
+    captionpos=b,
+    numbers=none,
+    tabsize=4,
+    keywordstyle=\color{gb_red}\bfseries,
+    identifierstyle=\color{gb_blue},
+    commentstyle=\color{gb_yellow}\itshape,
+    stringstyle=\color{gb_green},
+    frame=single,
+    framerule=0.5pt,
+    framesep=5pt,
+}
+
+% === 4. Title Block and Metadata ===
+\newcommand{\Course}{Data Science Fundamentals}
+\newcommand{\Topic}{Aesthetics in LaTeX Notes}
+\newcommand{\AuthorName}{Your Name}
+\date{\today}
+
+% === Custom Environments ===
+\newenvironment{keyconcept}
+    {\par\medskip\noindent\textbf{KEY CONCEPT:}\em}
+    {\par\medskip}
+
+% ====================================================================
+\begin{document}
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.5} % Adds padding for readability
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Notation} & \textbf{Description} \\ \hline
+$A, B, C$ & Capital letters represent matrices \\ \hline
+$\mathbf{u}, \mathbf{v}, \mathbf{w}$ & Lowercase letters represent vectors \\ \hline
+$A \in \mathbb{R}^{m \times n}$ & Matrix $A$ has $m$ rows and $n$ columns \\ \hline
+$A^T$ & The transpose of matrix $A$ \\ \hline
+$\mathbf{v}^T$ & The transpose of vector $\mathbf{v}$ \\ \hline
+$A^{-1}$ & The inverse of matrix $A$ \\ \hline
+$\det(A)$ & The determinant of matrix $A$ \\ \hline
+$AB$ & Matrix multiplication of $A$ and $B$ \\ \hline
+$\mathbf{u} \cdot \mathbf{v}; \langle \mathbf{u}, \mathbf{v} \rangle$ & Dot product of vectors $\mathbf{u}$ and $\mathbf{v}$ \\ \hline
+$\mathbb{R}$ & The set of real numbers (e.g., $0, -0.642, \sqrt{2}$) \\ \hline
+$\mathbb{R}^2$ & The set of 2D vectors, e.g., $\mathbf{v} = \begin{bmatrix} 1 \\ 3 \end{bmatrix}$ \\ \hline
+$\mathbb{R}^n$ & The set of $n$-dimensional vectors \\ \hline
+$\mathbf{v} \in \mathbb{R}^2$ & Vector $\mathbf{v}$ is an element of $\mathbb{R}^2$ \\ \hline
+$\|\mathbf{v}\|_1$ & $L_1$-norm of a vector \\ \hline
+$\|\mathbf{v}\|_2; \|\mathbf{v}\|$ & $L_2$-norm (Euclidean norm) of a vector \\ \hline
+$T: \mathbb{R}^2 \to \mathbb{R}^3$ & Transformation $T$ of $\mathbf{v} \in \mathbb{R}^2$ into $\mathbf{w} \in \mathbb{R}^3$ \\ \hline
+\end{tabular}
+\caption{Linear Algebra Notation Summary}
+\end{table}
+\end{document}
+
